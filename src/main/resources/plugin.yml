@@ -1,0 +1,13 @@
+name: EasyCommands
+author: iEpix
+main: us.kpvpdev.easycommands.EasyCommands
+version: '0.0.1'
+
+commands:
+  clearinventory:
+    aliases: [clear, ci]
+    description: Clear the inventory of a Player.
+  feed:
+    description: Feeds the Player to full hunger.
+  heal:
+    description: Heals the Player to full health.
