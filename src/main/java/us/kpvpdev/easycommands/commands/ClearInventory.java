@@ -40,7 +40,7 @@ public class ClearInventory implements CommandExecutor
                 ChatHelper.sendPlayerOnlyMessage(sender);
             }
         }
-        else if (args.length >= 1)
+        else if (args.length == 1)
         {
             if (PlayerHelper.checkPermission(sender, "easycommands.clearinventory.other"))
             {
@@ -60,6 +60,10 @@ public class ClearInventory implements CommandExecutor
             {
                 ChatHelper.sendNoPermsMsg(sender);
             }
+        }
+        else
+        {
+            ChatHelper.sendUsageMessage(sender, label, "[playerName]");
         }
 
         return false;

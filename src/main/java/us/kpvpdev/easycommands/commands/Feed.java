@@ -41,26 +41,50 @@ public class Feed implements CommandExecutor
                 ChatHelper.sendPlayerOnlyMessage(sender);
             }
         }
-        else if (args.length >= 1)
+        else if (args.length == 1)
         {
-            if (PlayerHelper.checkPermission(sender, "easycommands.feed.other"))
+            if (args[0].equalsIgnoreCase("all"))
             {
-                Player target = Bukkit.getPlayer(args[0]);
-
-                if (target != null)
+                if (PlayerHelper.checkPermission(sender, "easycommands.feed.all"))
                 {
-                    target.setFoodLevel(20);
-                    ChatHelper.sendMsg(sender, true, "Fed " + target.getDisplayName() + ".");
+                    for (Player players : Bukkit.getOnlinePlayers())
+                    {
+                        players.setFoodLevel(20);
+                        players.setSaturation(5F);
+                    }
+
+                    ChatHelper.sendMsg(sender, true, "All players have been fed!");
                 }
                 else
                 {
-                    ChatHelper.sendPlayerNotFoundMessage(sender, args[0]);
+                    ChatHelper.sendNoPermsMsg(sender);
                 }
             }
             else
             {
-                ChatHelper.sendNoPermsMsg(sender);
+                if (PlayerHelper.checkPermission(sender, "easycommands.feed.other"))
+                {
+                    Player target = Bukkit.getPlayer(args[0]);
+
+                    if (target != null)
+                    {
+                        target.setFoodLevel(20);
+                        ChatHelper.sendMsg(sender, true, "Fed " + target.getDisplayName() + ".");
+                    }
+                    else
+                    {
+                        ChatHelper.sendPlayerNotFoundMessage(sender, args[0]);
+                    }
+                }
+                else
+                {
+                    ChatHelper.sendNoPermsMsg(sender);
+                }
             }
+        }
+        else
+        {
+            ChatHelper.sendUsageMessage(sender, label, "[playerName, all]");
         }
 
         return false;

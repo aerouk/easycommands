@@ -9,5 +9,6 @@ public class InitCommands
         new ClearInventory();
         new Feed();
         new Heal();
+        new Help();
     }
 }

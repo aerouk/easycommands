@@ -56,4 +56,20 @@ public class ChatHelper
     {
         sendMsg(sender, true, "Player §3" + player + "§r not found.");
     }
+
+    /**
+     * Sends a message to the CommandSender explaining how to correctly use
+     * the entered command.
+     *
+     * @param sender CommandSender to send the message to
+     * @param label CommandLabel associated with command
+     * @param usage usage string commonly formatted as follows:
+     *     <pre>
+     *     &lt;arg1, arg2&gt; [optionalArg1, optionalArg2]
+     *     </pre>
+     */
+    public static void sendUsageMessage(CommandSender sender, String label, String usage)
+    {
+        sendMsg(sender, true, "§cUsage: §r/" + label + " " + usage);
+    }
 }

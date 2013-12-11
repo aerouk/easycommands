@@ -26,8 +26,8 @@ public class PlayerHelper
     }
 
     /**
-     * Checks whether the CommandSender has the permission supplied or if they
-     * are a server operator.
+     * Checks whether the CommandSender has the permission supplied, has the
+     * star node or if they are a server operator.
      *
      * @param sender sender to check the permissive status of
      * @param permission permission to check for
@@ -35,6 +35,6 @@ public class PlayerHelper
      */
     public static boolean checkPermission(CommandSender sender, String permission)
     {
-        return sender.hasPermission(permission) || sender.isOp();
+        return sender.hasPermission(permission) || sender.hasPermission("easycommands.*") || sender.isOp();
     }
 }

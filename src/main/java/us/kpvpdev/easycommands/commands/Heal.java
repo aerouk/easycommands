@@ -1,10 +1,9 @@
 package us.kpvpdev.easycommands.commands;
 
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
+import org.bukkit.command.*;
 import org.bukkit.entity.Player;
+
 import us.kpvpdev.easycommands.EasyCommands;
 import us.kpvpdev.easycommands.utils.ChatHelper;
 import us.kpvpdev.easycommands.utils.PlayerHelper;
@@ -40,26 +39,49 @@ public class Heal implements CommandExecutor
                 ChatHelper.sendPlayerOnlyMessage(sender);
             }
         }
-        else if (args.length >= 1)
+        else if (args.length == 1)
         {
-            if (PlayerHelper.checkPermission(sender, "easycommands.heal.other"))
+            if (args[0].equalsIgnoreCase("all"))
             {
-                Player target = Bukkit.getPlayer(args[0]);
-
-                if (target != null)
+                if (PlayerHelper.checkPermission(sender, "easycommands.heal.all"))
                 {
-                    target.setHealth(target.getMaxHealth());
-                    ChatHelper.sendMsg(sender, true, "Healed " + target.getDisplayName() + " to maximum health.");
+                    for (Player players : Bukkit.getOnlinePlayers())
+                    {
+                        players.setHealth(players.getMaxHealth());
+                    }
+
+                    ChatHelper.sendMsg(sender, true, "All players healed to full health!");
                 }
                 else
                 {
-                    ChatHelper.sendPlayerNotFoundMessage(sender, args[0]);
+                    ChatHelper.sendNoPermsMsg(sender);
                 }
             }
             else
             {
-                ChatHelper.sendNoPermsMsg(sender);
+                if (PlayerHelper.checkPermission(sender, "easycommands.heal.other"))
+                {
+                    Player target = Bukkit.getPlayer(args[0]);
+
+                    if (target != null)
+                    {
+                        target.setHealth(target.getMaxHealth());
+                        ChatHelper.sendMsg(sender, true, "Healed " + target.getDisplayName() + " to maximum health.");
+                    }
+                    else
+                    {
+                        ChatHelper.sendPlayerNotFoundMessage(sender, args[0]);
+                    }
+                }
+                else
+                {
+                    ChatHelper.sendNoPermsMsg(sender);
+                }
             }
+        }
+        else
+        {
+            ChatHelper.sendUsageMessage(sender, label, "[playerName, all]");
         }
 
         return false;
