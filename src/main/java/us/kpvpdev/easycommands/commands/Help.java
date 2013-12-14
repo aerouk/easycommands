@@ -8,27 +8,24 @@ import us.kpvpdev.easycommands.EasyCommands;
 import us.kpvpdev.easycommands.utils.ChatHelper;
 import us.kpvpdev.easycommands.utils.PlayerHelper;
 
-public class Help implements CommandExecutor
-{
-    public Help()
-    {
-        EasyCommands.getInstance().getCommand("help").setExecutor(this);
+public class Help implements CommandExecutor {
+
+    public Help() {
+        EasyCommands.getInstance().getCommand("echelp").setExecutor(this);
     }
 
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
-    {
-        if (args.length == 0)
-        {
-            if (PlayerHelper.checkPermission(sender, "easycommands.help"))
-            {
-                // to-do
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (args.length == 0) {
+            if (PlayerHelper.checkPermission(sender, "easycommands.help")) {
+                
+            } else {
+                
             }
-        }
-        else
-        {
+        } else {
             ChatHelper.sendUsageMessage(sender, label, null);
         }
 
         return false;
     }
+
 }

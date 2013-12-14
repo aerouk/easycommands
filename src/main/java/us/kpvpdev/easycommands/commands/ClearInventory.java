@@ -5,67 +5,50 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
 import us.kpvpdev.easycommands.EasyCommands;
 import us.kpvpdev.easycommands.utils.ChatHelper;
 import us.kpvpdev.easycommands.utils.PlayerHelper;
 
-public class ClearInventory implements CommandExecutor
-{
-    public ClearInventory()
-    {
+public class ClearInventory implements CommandExecutor {
+
+    public ClearInventory() {
         EasyCommands.getInstance().getCommand("clearinventory").setExecutor(this);
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
-    {
-        if (args.length == 0)
-        {
-            if (sender instanceof Player)
-            {
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (args.length == 0) {
+            if (sender instanceof Player) {
                 Player player = (Player) sender;
 
-                if (PlayerHelper.checkPermission(sender, "easycommands.clearinventory"))
-                {
+                if (PlayerHelper.checkPermission(sender, "easycommands.clearinventory")) {
                     PlayerHelper.clearPlayerInventory(player);
                     ChatHelper.sendMsg(sender, true, "Your inventory has been cleared!");
-                }
-                else
-                {
+                } else {
                     ChatHelper.sendNoPermsMsg(sender);
                 }
-            }
-            else
-            {
+            } else {
                 ChatHelper.sendPlayerOnlyMessage(sender);
             }
-        }
-        else if (args.length == 1)
-        {
-            if (PlayerHelper.checkPermission(sender, "easycommands.clearinventory.other"))
-            {
+        } else if (args.length == 1) {
+            if (PlayerHelper.checkPermission(sender, "easycommands.clearinventory.other")) {
                 Player target = Bukkit.getPlayer(args[0]);
 
-                if (target != null)
-                {
+                if (target != null) {
                     PlayerHelper.clearPlayerInventory(target);
                     ChatHelper.sendMsg(sender, true, "Cleared " + target.getDisplayName() + "'s inventory.");
-                }
-                else
-                {
+                } else {
                     ChatHelper.sendPlayerNotFoundMessage(sender, args[0]);
                 }
-            }
-            else
-            {
+            } else {
                 ChatHelper.sendNoPermsMsg(sender);
             }
-        }
-        else
-        {
+        } else {
             ChatHelper.sendUsageMessage(sender, label, "[playerName]");
         }
 
         return false;
     }
+
 }

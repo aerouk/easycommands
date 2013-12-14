@@ -10,27 +10,25 @@ import us.kpvpdev.easycommands.utils.init.InitCommands;
  * @author iEpix
  * @version 0.0.1
  */
-public class EasyCommands extends JavaPlugin implements Listener
-{
+public class EasyCommands extends JavaPlugin implements Listener {
+
     @Override
-    public void onEnable()
-    {
+    public void onEnable() {
         easycommands = this;
 
         InitCommands.registerCommands();
     }
 
     @Override
-    public void onDisable()
-    {
+    public void onDisable() {
         
     }
 
     private static EasyCommands easycommands;
 
-    public static EasyCommands getInstance()
-    {
+    public static EasyCommands getInstance() {
         return easycommands;
     }
+
 }
 

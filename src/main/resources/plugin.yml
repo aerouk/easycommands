@@ -7,6 +7,9 @@ commands:
   clearinventory:
     aliases: [clear, ci]
     description: Clear the inventory of a Player.
+  echelp:
+    description: Shows the main Help command for EasyCommands.
+    aliases: [easyhelp]
   feed:
     description: Feeds the Player to full hunger.
   heal:

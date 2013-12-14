@@ -5,8 +5,8 @@ import org.bukkit.command.CommandSender;
 /**
  * Contains methods to make sending messages easier.
  */
-public class ChatHelper
-{
+public class ChatHelper {
+
     /**
      * Sends a message to the defined player.
      *
@@ -14,10 +14,8 @@ public class ChatHelper
      * @param prefix whether to add a prefix to the message
      * @param msg message to send to the player
      */
-    public static void sendMsg(CommandSender sender, boolean prefix, String msg)
-    {
-        if (prefix)
-        {
+    public static void sendMsg(CommandSender sender, boolean prefix, String msg) {
+        if (prefix) {
             msg = "§bEC §7> §r" + msg;
         }
 
@@ -29,8 +27,7 @@ public class ChatHelper
      *
      * @param sender CommandSender to send the message to
      */
-    public static void sendNoPermsMsg(CommandSender sender)
-    {
+    public static void sendNoPermsMsg(CommandSender sender) {
         sendMsg(sender, false, "§cYou were denied access to execute that command.");
     }
 
@@ -40,8 +37,7 @@ public class ChatHelper
      *
      * @param sender CommandSender to send the message to
      */
-    public static void sendPlayerOnlyMessage(CommandSender sender)
-    {
+    public static void sendPlayerOnlyMessage(CommandSender sender) {
         sendMsg(sender, false, "§cThis command can only be used by an in-game player.");
     }
 
@@ -52,8 +48,7 @@ public class ChatHelper
      * @param sender CommandSender to send the message to
      * @param player Player name to check for
      */
-    public static void sendPlayerNotFoundMessage(CommandSender sender, String player)
-    {
+    public static void sendPlayerNotFoundMessage(CommandSender sender, String player) {
         sendMsg(sender, true, "Player §3" + player + "§r not found.");
     }
 
@@ -68,8 +63,8 @@ public class ChatHelper
      *     &lt;arg1, arg2&gt; [optionalArg1, optionalArg2]
      *     </pre>
      */
-    public static void sendUsageMessage(CommandSender sender, String label, String usage)
-    {
+    public static void sendUsageMessage(CommandSender sender, String label, String usage) {
         sendMsg(sender, true, "§cUsage: §r/" + label + " " + usage);
     }
+
 }
