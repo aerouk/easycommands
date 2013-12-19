@@ -5,6 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
 import us.kpvpdev.easycommands.EasyCommands;
 import us.kpvpdev.easycommands.utils.ChatHelper;
 import us.kpvpdev.easycommands.utils.PlayerHelper;
@@ -15,7 +16,6 @@ public class Feed implements CommandExecutor {
         EasyCommands.getInstance().getCommand("feed").setExecutor(this);
     }
 
-    @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0) {
             if (sender instanceof Player) {

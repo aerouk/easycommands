@@ -14,7 +14,6 @@ public class Heal implements CommandExecutor {
         EasyCommands.getInstance().getCommand("heal").setExecutor(this);
     }
 
-    @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0) {
             if (sender instanceof Player) {

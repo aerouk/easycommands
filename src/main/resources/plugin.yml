@@ -12,5 +12,9 @@ commands:
     aliases: [easyhelp]
   feed:
     description: Feeds the Player to full hunger.
+  freeze:
+    description: Freeze the Player.
   heal:
     description: Heals the Player to full health.
+  weather:
+    description: Set the weather in a World.
