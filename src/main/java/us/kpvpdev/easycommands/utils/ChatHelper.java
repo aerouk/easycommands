@@ -16,7 +16,7 @@ public class ChatHelper {
      */
     public static void sendMsg(CommandSender sender, boolean prefix, String msg) {
         if (prefix) {
-            msg = "§bEC §7> §r" + msg;
+            msg = "Â§bEC Â§7> Â§r" + msg;
         }
 
         sender.sendMessage(msg);
@@ -28,7 +28,7 @@ public class ChatHelper {
      * @param sender CommandSender to send the message to
      */
     public static void sendNoPermsMsg(CommandSender sender) {
-        sendMsg(sender, false, "§cYou were denied access to execute that command.");
+        sendMsg(sender, false, "Â§cYou were denied access to execute that command.");
     }
 
     /**
@@ -38,7 +38,7 @@ public class ChatHelper {
      * @param sender CommandSender to send the message to
      */
     public static void sendPlayerOnlyMessage(CommandSender sender) {
-        sendMsg(sender, false, "§cThis command can only be used by an in-game player.");
+        sendMsg(sender, false, "Â§cThis command can only be used by an in-game player.");
     }
 
     /**
@@ -49,7 +49,7 @@ public class ChatHelper {
      * @param player Player name to check for
      */
     public static void sendPlayerNotFoundMessage(CommandSender sender, String player) {
-        sendMsg(sender, true, "Player §3" + player + "§r not found.");
+        sendMsg(sender, true, "Player Â§3" + player + "Â§r not found.");
     }
 
     /**
@@ -64,7 +64,7 @@ public class ChatHelper {
      *     </pre>
      */
     public static void sendUsageMessage(CommandSender sender, String label, String usage) {
-        sendMsg(sender, true, "§cUsage: §r/" + label + " " + usage);
+        sendMsg(sender, true, "Â§cUsage: Â§r/" + label + " " + usage);
     }
 
 }

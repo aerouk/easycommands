@@ -26,7 +26,7 @@ public class Weather implements CommandExecutor {
                         
                         player.getWorld().setStorm(false);
                         player.getWorld().setThundering(false);
-                        ChatHelper.sendMsg(sender, true, "Weather set to §3sun§r in world §3" + player.getWorld().getName() + "§r.");
+                        ChatHelper.sendMsg(sender, true, "Weather set to Â§3sunï¿½r in world Â§3" + player.getWorld().getName() + "ï¿½r.");
                     } else {
                         ChatHelper.sendMsg(sender, true, "Please specify a world to set the weather in.");
                     }
@@ -35,7 +35,7 @@ public class Weather implements CommandExecutor {
                         Player player = (Player) sender;
                         
                         player.getWorld().setStorm(true);
-                        ChatHelper.sendMsg(sender, true, "Weather set to §3storm§r in world §3" + player.getWorld().getName() + "§r.");
+                        ChatHelper.sendMsg(sender, true, "Weather set to Â§3stormÂ§r in world Â§3" + player.getWorld().getName() + "ï¿½r.");
                     } else {
                         ChatHelper.sendMsg(sender, true, "Please specify a world to set the weather in.");
                     }
@@ -53,7 +53,7 @@ public class Weather implements CommandExecutor {
                         world.setThundering(false);
                     }
 
-                    ChatHelper.sendMsg(sender, true, "Weather set to §3sun§r in all worlds.");
+                    ChatHelper.sendMsg(sender, true, "Weather set to Â§3sunÂ§r in all worlds.");
                 } else {
                     ChatHelper.sendNoPermsMsg(sender);
                 }
@@ -63,7 +63,7 @@ public class Weather implements CommandExecutor {
                         world.setStorm(true);
                     }
 
-                    ChatHelper.sendMsg(sender, true, "Weather set to §3storm§r in all worlds.");
+                    ChatHelper.sendMsg(sender, true, "Weather set to Â§3stormÂ§r in all worlds.");
                 } else {
                     ChatHelper.sendNoPermsMsg(sender);
                 }
@@ -75,10 +75,10 @@ public class Weather implements CommandExecutor {
                         if (args[0].equalsIgnoreCase("sun")) {
                             world.setStorm(false);
                             world.setThundering(false);
-                            ChatHelper.sendMsg(sender, true, "Weather set to §3sun§r in world §3" + world.getName() + "§r.");
+                            ChatHelper.sendMsg(sender, true, "Weather set to Â§3sunÂ§r in world Â§3" + world.getName() + "Â§r.");
                         } else if (args[0].equalsIgnoreCase("storm")) {
                             world.setStorm(true);
-                            ChatHelper.sendMsg(sender, true, "Weather set to §3sun§r in world §3" + world.getName() + "§r.");
+                            ChatHelper.sendMsg(sender, true, "Weather set to Â§3sunï¿½r in world Â§3" + world.getName() + "Â§r.");
                         } else {
                             ChatHelper.sendUsageMessage(sender, label, "<sun, storm> [world]");
                         }
