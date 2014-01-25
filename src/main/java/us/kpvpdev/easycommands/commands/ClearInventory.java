@@ -24,26 +24,32 @@ public class ClearInventory implements CommandExecutor {
                 if (PlayerHelper.checkPermission(sender, "easycommands.clearinventory")) {
                     PlayerHelper.clearPlayerInventory(player);
                     ChatHelper.sendMsg(sender, true, "Your inventory has been cleared!");
-                } else {
+                }
+                else {
                     ChatHelper.sendNoPermsMsg(sender);
                 }
-            } else {
+            }
+            else {
                 ChatHelper.sendPlayerOnlyMessage(sender);
             }
-        } else if (args.length == 1) {
+        }
+        else if (args.length == 1) {
             if (PlayerHelper.checkPermission(sender, "easycommands.clearinventory.other")) {
                 Player target = Bukkit.getPlayer(args[0]);
 
                 if (target != null) {
                     PlayerHelper.clearPlayerInventory(target);
                     ChatHelper.sendMsg(sender, true, "Cleared " + target.getDisplayName() + "'s inventory.");
-                } else {
+                }
+                else {
                     ChatHelper.sendPlayerNotFoundMessage(sender, args[0]);
                 }
-            } else {
+            }
+            else {
                 ChatHelper.sendNoPermsMsg(sender);
             }
-        } else {
+        }
+        else {
             ChatHelper.sendUsageMessage(sender, label, "[playerName]");
         }
 

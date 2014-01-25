@@ -25,13 +25,16 @@ public class Feed implements CommandExecutor {
                     player.setFoodLevel(20);
                     player.setSaturation(5F);
                     ChatHelper.sendMsg(sender, true, "You've been fed to full hunger.");
-                } else {
+                }
+                else {
                     ChatHelper.sendNoPermsMsg(sender);
                 }
-            } else {
+            }
+            else {
                 ChatHelper.sendPlayerOnlyMessage(sender);
             }
-        } else if (args.length == 1) {
+        }
+        else if (args.length == 1) {
             if (args[0].equalsIgnoreCase("all")) {
                 if (PlayerHelper.checkPermission(sender, "easycommands.feed.all")) {
                     for (Player players : Bukkit.getOnlinePlayers()) {
@@ -40,24 +43,29 @@ public class Feed implements CommandExecutor {
                     }
 
                     ChatHelper.sendMsg(sender, true, "All players have been fed!");
-                } else {
+                }
+                else {
                     ChatHelper.sendNoPermsMsg(sender);
                 }
-            } else {
+            }
+            else {
                 if (PlayerHelper.checkPermission(sender, "easycommands.feed.other")) {
                     Player target = Bukkit.getPlayer(args[0]);
 
                     if (target != null) {
                         target.setFoodLevel(20);
                         ChatHelper.sendMsg(sender, true, "Fed " + target.getDisplayName() + ".");
-                    } else {
+                    }
+                    else {
                         ChatHelper.sendPlayerNotFoundMessage(sender, args[0]);
                     }
-                } else {
+                }
+                else {
                     ChatHelper.sendNoPermsMsg(sender);
                 }
             }
-        } else {
+        }
+        else {
             ChatHelper.sendUsageMessage(sender, label, "[playerName, all]");
         }
 

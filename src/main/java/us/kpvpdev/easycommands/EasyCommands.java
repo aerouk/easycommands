@@ -34,10 +34,9 @@ public class EasyCommands extends JavaPlugin implements Listener {
     public static EasyCommands getInstance() {
         return easycommands;
     }
-    
+
     public static Lists lists() {
         return lists;
     }
-    
-}
 
+}

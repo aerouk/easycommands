@@ -7,7 +7,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import us.kpvpdev.easycommands.EasyCommands;
 
 public class PlayerListener implements Listener {
-    
+
     @EventHandler
     public void onMove(PlayerMoveEvent event) {
         if (EasyCommands.lists().frozen.contains(event.getPlayer().getName())) {

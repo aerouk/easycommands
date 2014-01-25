@@ -25,17 +25,21 @@ public class Freeze implements CommandExecutor {
                     if (EasyCommands.lists().frozen.contains(target.getName())) {
                         EasyCommands.lists().frozen.remove(target.getName());
                         ChatHelper.sendMsg(sender, true, target.getName() + " has been unfrozen.");
-                    } else {
+                    }
+                    else {
                         EasyCommands.lists().frozen.add(target.getName());
                         ChatHelper.sendMsg(sender, true, target.getName() + " has been frozen.");
                     }
-                } else {
+                }
+                else {
                     ChatHelper.sendPlayerNotFoundMessage(sender, args[0]);
                 }
-            } else {
+            }
+            else {
                 ChatHelper.sendNoPermsMsg(sender);
             }
-        } else {
+        }
+        else {
             ChatHelper.sendUsageMessage(sender, label, "<playerName>");
         }
         

@@ -18,10 +18,12 @@ public class Help implements CommandExecutor {
         if (args.length == 0) {
             if (PlayerHelper.checkPermission(sender, "easycommands.help")) {
                 
-            } else {
+            }
+            else {
                 
             }
-        } else {
+        }
+        else {
             ChatHelper.sendUsageMessage(sender, label, null);
         }
 

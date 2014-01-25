@@ -22,13 +22,16 @@ public class Heal implements CommandExecutor {
                 if (PlayerHelper.checkPermission(sender, "easycommands.heal")) {
                     player.setHealth(player.getMaxHealth());
                     ChatHelper.sendMsg(sender, true, "You've been healed to full health.");
-                } else {
+                }
+                else {
                     ChatHelper.sendNoPermsMsg(sender);
                 }
-            } else {
+            }
+            else {
                 ChatHelper.sendPlayerOnlyMessage(sender);
             }
-        } else if (args.length == 1) {
+        }
+        else if (args.length == 1) {
             if (args[0].equalsIgnoreCase("all")) {
                 if (PlayerHelper.checkPermission(sender, "easycommands.heal.all")) {
                     for (Player players : Bukkit.getOnlinePlayers()) {
@@ -36,24 +39,29 @@ public class Heal implements CommandExecutor {
                     }
 
                     ChatHelper.sendMsg(sender, true, "All players healed to full health!");
-                } else {
+                }
+                else {
                     ChatHelper.sendNoPermsMsg(sender);
                 }
-            } else {
+            }
+            else {
                 if (PlayerHelper.checkPermission(sender, "easycommands.heal.other")) {
                     Player target = Bukkit.getPlayer(args[0]);
 
                     if (target != null) {
                         target.setHealth(target.getMaxHealth());
                         ChatHelper.sendMsg(sender, true, "Healed " + target.getDisplayName() + " to maximum health.");
-                    } else {
+                    }
+                    else {
                         ChatHelper.sendPlayerNotFoundMessage(sender, args[0]);
                     }
-                } else {
+                }
+                else {
                     ChatHelper.sendNoPermsMsg(sender);
                 }
             }
-        } else {
+        }
+        else {
             ChatHelper.sendUsageMessage(sender, label, "[playerName, all]");
         }
 
